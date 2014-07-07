@@ -1,0 +1,74 @@
+import java.awt.Robot;
+ 
+public class MouseClass {
+ 
+ public static void main(String[] args) throws Exception {
+ 
+            Robot robot = new Robot();
+ 
+           % SET THE MOUSE X Y POSITION
+            robot.mouseMove(300, 550);
+ 
+ }
+}
+
+
+
+%==================================================
+
+
+import java.awt.Robot;
+import java.awt.event.InputEvent;
+ 
+public class MouseClass {
+ 
+ public static void main(String[] args) throws Exception {
+ 
+            Robot robot = new Robot();
+ 
+            // RIGHT CLICK
+            robot.mousePress(InputEvent.BUTTON3_MASK);
+            robot.mouseRelease(InputEvent.BUTTON3_MASK);
+ 
+ }
+}
+
+
+%=============================================================
+import java.awt.Robot;
+import java.awt.event.InputEvent;
+ 
+public class MouseClass {
+ 
+ public static void main(String[] args) throws Exception {
+ 
+            Robot robot = new Robot();
+ 
+            // LEFT CLICK
+            robot.mousePress(InputEvent.BUTTON1_MASK);
+            robot.mouseRelease(InputEvent.BUTTON1_MASK);
+ 
+ }
+}
+
+
+
+
+%=============================================================
+import java.awt.Robot;
+import java.awt.event.InputEvent;
+ 
+public class MouseClass {
+ 
+ public static void main(String[] args) throws Exception {
+ 
+            Robot robot = new Robot();
+ 
+            // MIDDLE WHEEL CLICK
+            robot.mousePress(InputEvent.BUTTON3_DOWN_MASK);
+            robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK);
+ 
+            // SCROLL THE MOUSE WHEEL
+            robot.mouseWheel(-100);
+ 
+ }
