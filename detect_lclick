@@ -1,0 +1,36 @@
+function click = detect_lclick(im)
+import java.awt.Robot;
+import java.awt.event.InputEvent;
+r = Robot;
+%------------------set color intencity for left click ---------------------
+rl=0;
+rh=15;
+gl=15;
+gh=20;
+bl=185;
+bh=230;
+
+a=0;
+x=0;
+y=0;
+%--------------------Detection of color point in image---------------------
+for i=6:474
+    for j=6:634
+        if ((im(i,j,1)>=rl&&im(i,j,1)<=rh)&&(im(i,j,2)>=gl&&im(i,j,2)<=gh)&&(im(i,j,3)>=bl&&im(i,j,3)<=bh))
+            x=x+i;
+            y=y+j;
+            a=a+1;
+        end
+    end
+end
+    if a>20
+    click = 1;
+    else
+    click = 0;
+    end
+%-------------------------------------Left click---------------------------
+       if(click==1)
+         r.mousePress(InputEvent.BUTTON1_MASK);
+         r.mouseRelease(InputEvent.BUTTON1_MASK);
+       end
+end
