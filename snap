@@ -1,0 +1,3 @@
+trigger(vid);
+im = getdata(vid,1);
+imtool(im);
