@@ -1,0 +1,51 @@
+import java.awt.Robot;
+import java.awt.event.InputEvent;
+global e a
+trigger(vid);
+im = getdata(vid,1);
+s = size(im);
+
+a=0;
+x=0;
+y=0;
+w=0;
+%----set color intencity for mouse movement------------------------------
+rl=80;
+rh=130;
+gl=180;
+gh=220;
+bl=220;
+bh=255;
+
+for i=6:s(1)
+    for j=6:s(2)
+        if ((im(i,j,1)>=rl&&im(i,j,1)<=rh)&&(im(i,j,2)>=gl&&im(i,j,2)<=gh)&&(im(i,j,3)>=bl&&im(i,j,3)<=bh))
+            x=x+i;
+            y=y+j;
+            a=a+1;
+        end
+    end
+end
+if a>0
+w=round(x/a);
+r=round(y/a);
+   e = [w,r];
+    im(e(1)-2:e(1)+2,e(2)-2:e(2)+2,1:3)=0;
+   e = e*2.4;
+end
+
+lclick = detect_lclick(im);
+rclick = detect_rclick(im);
+%{
+if(click==1)
+    r.mousePress(InputEvent.BUTTON1_MASK);
+    r.mouseRelease(InputEvent.BUTTON1_MASK);
+    
+end
+ %}
+r = Robot;
+r.mouseMove(e(2),e(1))
+
+
+% figure(1),imshow(im)
+
