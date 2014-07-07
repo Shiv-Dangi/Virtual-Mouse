@@ -1,0 +1,6 @@
+vid = videoinput('winvideo',1,'YUY2_640x480');
+triggerconfig(vid,'manual');
+set(vid,'framesPerTrigger',1);
+set(vid,'ReturnedColorSpace','rgb');
+set(vid,'TriggerRepeat',Inf);
+start(vid);
